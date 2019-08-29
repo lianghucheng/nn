@@ -6,10 +6,12 @@ import (
 
 var Processor =json.NewProcessor()
 
-type Test struct {
-
-}
-
 func init() {
-	Processor.Register(&Test{})
+	Processor.Register(&C2S_TokenAuthorize{})
+
+	Processor.Register(&C2S_Heartbeat{})
 }
+
+type C2S_Heartbeat struct{}
+
+type S2C_Heartbeat struct{}

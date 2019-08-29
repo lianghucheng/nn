@@ -7,7 +7,7 @@ import (
 
 var (
 	// log conf
-	LogFlag = log.LstdFlags
+	LogFlag = log.LstdFlags | log.LstdFlags
 
 	// gate conf
 	PendingWriteNum        = 2000

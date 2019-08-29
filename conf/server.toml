@@ -1,0 +1,89 @@
+# ----------------------------Leaf框架对应的配置文件-------------------------
+[CfgLeaf]
+LogLevel        ="release" #打印日志的等级
+LogPath         =""      #日志输出目录
+TcpAddr         ="0.0.0.0:3551" #tcp服务地址
+WSAddr          ="0.0.0.0:3661" #websocket服务地址
+MaxConnNum      =20000             #mongodb的最大连接数
+ConsolePort     =3331              #终端命令端口
+GameType         =3
+#DBUrl    = "mongodb://47.105.36.150"  #mongodb的地址
+DBUrl    = "mongodb://localhost"
+DBMaxConnNum =100                     #数据库的最大连接数
+NNRpcAddr  ="0.0.0.0:8661"            #Rpc服务端地址
+RobotRate =100                        #机器人胜率
+# ----------------------------超时时间定义-----------------------------------
+[CfgTimeOut]
+S2CHeartBeatTimeout = 120
+C2SConnectTimeout = 5
+# ----------------------------匹配场入场条件---------------------------------
+[Matchs]
+    #初级场
+    [Matchs.2000]
+    BaseScore=50
+    Fare=240
+    #中级场
+    [Matchs.50000]
+    BaseScore=500
+    Fare=240
+    [Matchs.500000]
+    BaseScore=5000
+    Fare=240
+# ----------------------------倒计时-----------------------------------
+[GameTimeout]
+Start     =   3        #游戏开始倒计时
+Bid       =   5        #抢庄倒计时
+Grad      =   5        #确定庄家倒计时
+Double    =   5        #闲家倒计时加倍
+Show      =   5        #开牌倒计时
+Check     =   5        #比牌倒计时
+RandomDeal =2          #随机庄的倒计时(服务端)
+DoDouble =2            #闲家倒计时加倍(服务端)
+DoShow =2              #开牌倒计时(服务端)
+DoEnd =2               #结束游戏倒计时(服务端)
+
+# ----------------------------私人场入场条件-----------------------------------
+[Private]
+   #初级场
+  [Private.500000]             #最低入场金币
+  BaseScore=5000               #底注
+  Fare=4500                    #台费
+  #中级场
+  [Private.2500000]            #最低入场金币
+  BaseScore=25000              #底注
+  Fare=8500                    #台费
+
+
+# ----------------------------redis地址端口-------------------------------
+[CfgRedis]
+Address  = "127.0.0.1:6379"	# redis地址端口。
+Password = ""				# redis密码。
+DB = 1
+
+#------------------------------牛牛游戏的相关配置----------------------------------------
+[CfgNN]
+#------------------------------匹配场底分对应的闲家可以叫的最高倍数----------------------
+MinBaseScore=50
+MinNeed=25
+MidBaseScore=500
+MidNeed=25
+MaxBaseScore=5000
+MaxNeed=25
+DefaultNeed=25
+
+DefaultDouble=5        #默认加倍
+
+TwoOxMul =1            #牛一到牛二倍数
+FourOxMul =1           #牛三到牛四倍数
+SixOxMul =1            #牛五到牛六倍数
+SevenOxMul=2           #牛七倍数
+EightOxMul=2           #牛八倍数
+NineOxMul=2            #牛九倍数
+OxOxMul=3              #牛牛倍数
+FourBombMul=4          #四柞倍数
+FiveFlowerOxMul=5      #五花牛倍数
+FiveLittleOxMul=8      #五小牛倍数
+DefaultMul=1           #没牛默认倍数
+
+GameType=3             #游戏类型
+ShowRankLen=100        #排行榜展示最大长度
